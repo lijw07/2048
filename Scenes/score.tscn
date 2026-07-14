@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bg0c2rh7ahndd"]
+
+[ext_resource type="Script" uid="uid://d0x8c21578ybd" path="res://Scripts/Score.cs" id="1_0f7a8"]
+
+[node name="Score" type="Control" unique_id=859039678]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0f7a8")
+
+[node name="Panel" type="Panel" parent="." unique_id=88816523]
+layout_mode = 0
+offset_right = 117.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="Panel" unique_id=859153403]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 6.0
+offset_right = 68.0
+offset_bottom = 29.0
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="Panel" unique_id=2083690440]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 31.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://d01bt7ioqmvtm"]
+
+[ext_resource type="Script" uid="uid://dx7s300ksofjx" path="res://Scripts/Grid.cs" id="1_3jwyx"]
+
+[node name="Grid" type="Node2D" unique_id=375609471]
+script = ExtResource("1_3jwyx")
+
+[node name="Backgroun" type="Polygon2D" parent="." unique_id=1343687627]
+color = Color(0.73333335, 0.6745098, 0.62352943, 1)
+polygon = PackedVector2Array(0, 0, 475, 0, 475, 475, 0, 475)
+
+[node name="Row" type="Node2D" parent="Backgroun" unique_id=2009046103]
+
+[node name="GridSquare" type="Polygon2D" parent="Backgroun/Row" unique_id=812650509]
+position = Vector2(15, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare2" type="Polygon2D" parent="Backgroun/Row" unique_id=1455847471]
+position = Vector2(130, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare3" type="Polygon2D" parent="Backgroun/Row" unique_id=1813417390]
+position = Vector2(245, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare4" type="Polygon2D" parent="Backgroun/Row" unique_id=880885395]
+position = Vector2(360, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="Row2" type="Node2D" parent="Backgroun" unique_id=974964688]
+position = Vector2(0, 115)
+
+[node name="GridSquare" type="Polygon2D" parent="Backgroun/Row2" unique_id=1619477865]
+position = Vector2(15, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare2" type="Polygon2D" parent="Backgroun/Row2" unique_id=177824750]
+position = Vector2(130, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare3" type="Polygon2D" parent="Backgroun/Row2" unique_id=481868148]
+position = Vector2(245, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare4" type="Polygon2D" parent="Backgroun/Row2" unique_id=466273696]
+position = Vector2(360, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="Row3" type="Node2D" parent="Backgroun" unique_id=351990342]
+position = Vector2(0, 230)
+
+[node name="GridSquare" type="Polygon2D" parent="Backgroun/Row3" unique_id=2095559501]
+position = Vector2(15, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare2" type="Polygon2D" parent="Backgroun/Row3" unique_id=1775021151]
+position = Vector2(130, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare3" type="Polygon2D" parent="Backgroun/Row3" unique_id=2083775752]
+position = Vector2(245, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare4" type="Polygon2D" parent="Backgroun/Row3" unique_id=273401912]
+position = Vector2(360, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="Row4" type="Node2D" parent="Backgroun" unique_id=1882198420]
+position = Vector2(0, 345)
+
+[node name="GridSquare" type="Polygon2D" parent="Backgroun/Row4" unique_id=255770446]
+position = Vector2(15, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare2" type="Polygon2D" parent="Backgroun/Row4" unique_id=1233915014]
+position = Vector2(130, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare3" type="Polygon2D" parent="Backgroun/Row4" unique_id=1959475358]
+position = Vector2(245, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="GridSquare4" type="Polygon2D" parent="Backgroun/Row4" unique_id=569467828]
+position = Vector2(360, 15)
+color = Color(0.8, 0.7529412, 0.7019608, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)

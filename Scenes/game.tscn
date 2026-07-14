@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bc3pmwjcvt54c"]
+
+[ext_resource type="Script" uid="uid://d2vx4avki4pn4" path="res://Scripts/Game.cs" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://d01bt7ioqmvtm" path="res://Scenes/grid.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://bg0c2rh7ahndd" path="res://Scenes/score.tscn" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://dq0cl1b7hggyv" path="res://Scripts/Audio.cs" id="4_audio"]
+
+[node name="Game" type="Node2D" unique_id=1534995792]
+script = ExtResource("1_ebmjs")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1044289482]
+color = Color(0.9607843, 0.83137256, 0.74509805, 1)
+polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 2000, 0, 2000)
+
+[node name="Grid" parent="." unique_id=375609471 instance=ExtResource("2_qxrlw")]
+position = Vector2(356, 80)
+
+[node name="Score" parent="." unique_id=859039678 instance=ExtResource("3_wrm1d")]
+offset_left = 540.0
+offset_top = 20.0
+offset_right = 658.0
+offset_bottom = 60.0
+
+[node name="Audio" type="Node" parent="." unique_id=193523930]
+script = ExtResource("4_audio")
+
+[node name="GameOverOverlay" type="Node2D" parent="." unique_id=193523931]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="GameOverOverlay" unique_id=1232438376]
+color = Color(1, 1, 1, 0.5019608)
+polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 2000, 0, 2000)
+
+[node name="Button" type="Button" parent="GameOverOverlay" unique_id=1316677254]
+offset_left = 489.0
+offset_top = 263.0
+offset_right = 708.0
+offset_bottom = 313.0
+text = "Restart
+"
+
+[node name="Label" type="Label" parent="GameOverOverlay" unique_id=1088334729]
+offset_left = 525.0
+offset_top = 194.0
+offset_right = 667.0
+offset_bottom = 238.0
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="GameOver" from="Grid" to="." method="GameOver"]
+[connection signal="Merged" from="Grid" to="Audio" method="PlayMerge"]
+[connection signal="Moved" from="Grid" to="Audio" method="PlayMove"]
+[connection signal="ScoreUpdate" from="Grid" to="Score" method="AddToScore"]
+[connection signal="pressed" from="GameOverOverlay/Button" to="." method="Restart"]
