@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bc3pmwjcvt54c"]
 
-[ext_resource type="Script" uid="uid://d2vx4avki4pn4" path="res://Scripts/Game.cs" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://ctgyb156en4yn" path="res://Scripts/game.gd" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://d01bt7ioqmvtm" path="res://Scenes/grid.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bg0c2rh7ahndd" path="res://Scenes/score.tscn" id="3_wrm1d"]
-[ext_resource type="Script" uid="uid://dq0cl1b7hggyv" path="res://Scripts/Audio.cs" id="4_audio"]
+[ext_resource type="Script" uid="uid://c3rfsbjh2nieh" path="res://Scripts/audio.gd" id="4_audio"]
+[ext_resource type="PackedScene" uid="uid://bvol2048ctrl0" path="res://Scenes/volume_controls.tscn" id="5_vol"]
 
 [node name="Game" type="Node2D" unique_id=1534995792]
 script = ExtResource("1_ebmjs")
@@ -23,6 +24,12 @@ offset_bottom = 60.0
 
 [node name="Audio" type="Node" parent="." unique_id=193523930]
 script = ExtResource("4_audio")
+
+[node name="VolumeControls" parent="." unique_id=193523932 instance=ExtResource("5_vol")]
+offset_left = 940.0
+offset_top = 521.0
+offset_right = 1124.0
+offset_bottom = 621.0
 
 [node name="GameOverOverlay" type="Node2D" parent="." unique_id=193523931]
 visible = false

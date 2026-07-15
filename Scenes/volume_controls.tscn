@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bvol2048ctrl0"]
+
+[ext_resource type="Script" path="res://Scripts/volume_controls.gd" id="1_vol"]
+
+[node name="VolumeControls" type="PanelContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -116.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_vol")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="MoveRow" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Margin/VBox/MoveRow"]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+text = "Move"
+vertical_alignment = 1
+
+[node name="MoveSlider" type="HSlider" parent="Margin/VBox/MoveRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MergeRow" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Margin/VBox/MergeRow"]
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+text = "Merge"
+vertical_alignment = 1
+
+[node name="MergeSlider" type="HSlider" parent="Margin/VBox/MergeRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0

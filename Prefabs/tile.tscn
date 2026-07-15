@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhsolru56l0jx"]
 
-[ext_resource type="Script" uid="uid://b15hmewcj5j10" path="res://Prefabs/Tile.cs" id="1_hacnt"]
+[ext_resource type="Script" path="res://Prefabs/tile.gd" id="1_hacnt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hwsh7"]
 font_size = 36
