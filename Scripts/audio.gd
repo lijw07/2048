@@ -14,19 +14,16 @@ func create_player(stream_path: String, volume_db: float) -> AudioStreamPlayer:
 	var player := AudioStreamPlayer.new()
 	player.stream = load(stream_path)
 	player.volume_db = volume_db
+	player.max_polyphony = 4
 	add_child(player)
 	return player
 
-# Called when tiles slide on a valid move.
 func PlayMove() -> void:
 	move_sound.play()
 
-# Called when two tiles combine into a doubled tile.
 func PlayMerge() -> void:
 	merge_sound.play()
 
-# The following take a linear 0..1 level (1 = the sound's default loudness,
-# 0 = muted) and are driven by the volume UI sliders.
 func SetMoveVolume(level: float) -> void:
 	apply_volume(move_sound, MOVE_BASE_DB, level)
 

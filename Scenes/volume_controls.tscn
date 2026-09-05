@@ -29,6 +29,7 @@ theme_override_constants/separation = 6
 
 [node name="Title" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Volume"
 horizontal_alignment = 1
 
@@ -37,14 +38,15 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="Margin/VBox/MoveRow"]
-custom_minimum_size = Vector2(52, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Move"
 vertical_alignment = 1
 
 [node name="MoveSlider" type="HSlider" parent="Margin/VBox/MoveRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(90, 0)
+custom_minimum_size = Vector2(160, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -57,14 +59,15 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="Margin/VBox/MergeRow"]
-custom_minimum_size = Vector2(52, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "Merge"
 vertical_alignment = 1
 
 [node name="MergeSlider" type="HSlider" parent="Margin/VBox/MergeRow"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(90, 0)
+custom_minimum_size = Vector2(160, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

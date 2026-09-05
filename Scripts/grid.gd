@@ -8,6 +8,20 @@ signal Merged()
 var grid: Array = []
 var scene_tile: PackedScene
 
+const SWIPE_THRESHOLD := 40.0
+
+var _touch_index: int = -1
+var _touch_start: Vector2 = Vector2.ZERO
+var _swipe_handled: bool = false
+
+var swipe_blockers: Array = []
+
+var debug_label: Label = null
+var debug_prefix: String = ""
+var _debug_touches: int = 0
+var _debug_drags: int = 0
+var _debug_last: String = "-"
+
 func _ready() -> void:
 	scene_tile = load("res://Prefabs/tile.tscn")
 	grid = _make_empty_grid()
@@ -23,21 +37,80 @@ func _make_empty_grid() -> Array:
 	return g
 
 func _input(event: InputEvent) -> void:
-	var moved := false
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			_debug_touches += 1
+			if _touch_index == -1 and not _PointerOverUI(event.position):
+				_touch_index = event.index
+				_touch_start = event.position
+				_swipe_handled = false
+			elif _touch_index != -1:
+				_debug_last = "ignored: 2nd finger"
+			else:
+				_debug_last = "ignored: on UI"
+			DebugRefresh()
+		elif event.index == _touch_index:
+			if not _swipe_handled:
+				_TrySwipe(event.position - _touch_start)
+			_touch_index = -1
+			DebugRefresh()
+		return
+
+	if event is InputEventScreenDrag:
+		_debug_drags += 1
+		if event.index == _touch_index and not _swipe_handled:
+			_TrySwipe(event.position - _touch_start)
+		DebugRefresh()
+		return
+
+	var direction := ""
 
 	if event.is_action_pressed("up"):
-		moved = MoveTiles("up")
+		direction = "up"
+	elif event.is_action_pressed("down"):
+		direction = "down"
+	elif event.is_action_pressed("left"):
+		direction = "left"
+	elif event.is_action_pressed("right"):
+		direction = "right"
 
-	if event.is_action_pressed("down"):
-		moved = MoveTiles("down")
+	if direction != "":
+		_Move(direction)
 
-	if event.is_action_pressed("left"):
-		moved = MoveTiles("left")
+func _PointerOverUI(pos: Vector2) -> bool:
+	for c in swipe_blockers:
+		if c != null and c.visible:
+			var r := Rect2(c.global_position, c.size * c.scale)
+			if r.has_point(pos):
+				return true
+	return false
 
-	if event.is_action_pressed("right"):
-		moved = MoveTiles("right")
+func _TrySwipe(delta: Vector2) -> void:
+	if delta.length() < SWIPE_THRESHOLD:
+		_debug_last = "short %.0f,%.0f (need %d)" % [delta.x, delta.y, int(SWIPE_THRESHOLD)]
+		return
 
-	if moved:
+	_swipe_handled = true
+
+	var direction := ""
+	if absf(delta.x) > absf(delta.y):
+		direction = "right" if delta.x > 0.0 else "left"
+	else:
+		direction = "down" if delta.y > 0.0 else "up"
+
+	_debug_last = "SWIPE %s (%.0f,%.0f)" % [direction, delta.x, delta.y]
+	_Move(direction)
+
+func DebugRefresh() -> void:
+	if debug_label == null:
+		return
+	var vp: Vector2 = get_viewport().get_visible_rect().size
+	debug_label.text = "%s\nvp %d x %d\ntouch %d  drag %d\n%s" % [
+		debug_prefix, int(vp.x), int(vp.y), _debug_touches, _debug_drags, _debug_last
+	]
+
+func _Move(direction: String) -> void:
+	if MoveTiles(direction):
 		SpawnRandomTile()
 
 func MoveTiles(direction: String) -> bool:
@@ -70,7 +143,6 @@ func MoveTiles(direction: String) -> bool:
 			var next = tiles.back() if tiles.size() > 0 else null
 			var merged = null
 
-			# Check for merge
 			if next != null and current.GetValue() == next.GetValue():
 				movement_occurred = true
 
