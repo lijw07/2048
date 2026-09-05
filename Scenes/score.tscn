@@ -2,34 +2,45 @@
 
 [ext_resource type="Script" path="res://Scripts/score.gd" id="1_0f7a8"]
 
-[node name="Score" type="Control" unique_id=859039678]
+[sub_resource type="LabelSettings" id="LabelSettings_score"]
+font_size = 30
+
+[node name="Score" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 260.0
+offset_bottom = 64.0
 script = ExtResource("1_0f7a8")
 
-[node name="Panel" type="Panel" parent="." unique_id=88816523]
-layout_mode = 0
-offset_right = 117.0
-offset_bottom = 40.0
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Score" type="Label" parent="Panel" unique_id=859153403]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 6.0
-offset_right = 68.0
-offset_bottom = 29.0
-text = "Score: "
-horizontal_alignment = 1
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="Panel/Margin"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/Margin/HBox"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_score")
 vertical_alignment = 1
 
-[node name="ScoreValue" type="Label" parent="Panel" unique_id=2083690440]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 8.0
-offset_right = 104.0
-offset_bottom = 31.0
+[node name="ScoreValue" type="Label" parent="Panel/Margin/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "0"
-horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_score")
 vertical_alignment = 1

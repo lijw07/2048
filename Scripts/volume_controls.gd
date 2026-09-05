@@ -11,5 +11,4 @@ func _ready() -> void:
 func hook_slider(path: String, setter: Callable) -> void:
 	var slider: HSlider = get_node(path)
 	slider.value_changed.connect(setter)
-	# Apply the slider's starting position to the audio player.
 	setter.call(slider.value)

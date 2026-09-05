@@ -3,7 +3,7 @@ extends Control
 var value_label: Label
 
 func _ready() -> void:
-	value_label = $Panel/ScoreValue
+	value_label = %ScoreValue
 
 func AddToScore(additional_value: int) -> void:
 	var current_value := int(value_label.text)
