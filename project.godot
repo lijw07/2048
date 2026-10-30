@@ -14,6 +14,8 @@ config/name="2048"
 run/main_scene="uid://bc3pmwjcvt54c"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+boot_splash/show_image=false
+boot_splash/bg_color=Color(0.9607843, 0.83137256, 0.74509805, 1)
 
 [display]
 
